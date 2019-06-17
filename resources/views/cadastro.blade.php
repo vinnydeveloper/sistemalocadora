@@ -9,6 +9,6 @@
         @empty
             <li>Não tem usuarios</li>
         @endforelse
-    </ul>
+    </ul>  
     
 @endsection

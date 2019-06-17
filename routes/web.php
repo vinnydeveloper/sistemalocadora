@@ -23,3 +23,8 @@ Route::get('cadastro',function(){
 });
 
 Route::get('compras',"comprasController@index");
+
+Route::get('ator',"atorController@index");
+
+Route::get('ator/cadastro', "atorController@create");
+Route::post('ator/cadastro', "atorController@create");
