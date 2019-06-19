@@ -12,7 +12,7 @@
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('home');
 });
 
 Route::get('cadastro',function(){
@@ -28,3 +28,9 @@ Route::get('ator',"atorController@index");
 
 Route::get('ator/cadastro', "atorController@create");
 Route::post('ator/cadastro', "atorController@create");
+Route::get('ator/editar/{id}',"atorController@editar");
+Route::post('ator/editar/{id}',"atorController@editar");
+
+
+Route::get('filme',"FilmeController@todosFilmes");
+
