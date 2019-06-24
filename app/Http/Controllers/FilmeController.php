@@ -9,12 +9,26 @@ use App\Filme;
 class FilmeController extends Controller
 {
     public function todosFilmes(Request $request){
-        dd('Chegou aqui');
+        
         if($request->isMethod('GET')){
             
-            $todosFilmes = Filme::all();
+            $todosFilmes = Filme::take(30)->get();
 
             return view('filmes',["todosFilmes"=>$todosFilmes]);
         }
+    }
+
+    public function editar(Request $request, $id){
+            if($request->isMethod('GET')){
+                $filme = Filme::find($id);
+
+                return view('editarFilme',["filme"=>$filme]);
+            }
+              $filme = Filme::find($request->filmeId);
+              $filme->titulo = $request->filmeTitulo;
+              $resultado = $filme->save();
+
+              return view('editarFilme',['resultado'=>$resultado,'filme'=>$filme]);
+           
     }
 }

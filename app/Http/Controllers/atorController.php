@@ -9,7 +9,7 @@ class atorController extends Controller
     //
     public function index(Request $request){
         if($request->isMethod('GET')){
-            $todosAtores = Ator::all();
+            $todosAtores = Ator::all()->limit(10);
             return view('ator',["todosAtores"=>$todosAtores]);
         }
 
