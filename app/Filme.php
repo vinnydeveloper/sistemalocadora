@@ -9,4 +9,10 @@ class Filme extends Model
     protected $table = "filme";
     protected $primaryKey = "filme_id";
     public $timestamps = false;
+
+     public function atores()
+    {
+        return $this->belongsToMany('App\Ator');
+    }
+
 }

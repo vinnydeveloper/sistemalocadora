@@ -47,4 +47,14 @@ class atorController extends Controller
 
         return view("editarAtor",["resultado"=>$resultado, "ator"=>$ator]);
     }
+
+     public function deletarAtor($id){
+        
+         $filme = Ator::find($id);
+
+         $filme->delete();
+
+        echo "deu certo";
+
+    }
 }

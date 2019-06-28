@@ -4,6 +4,9 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Filme;
+use App\FilmeAtor;
+use App\FilmeCategoria;
+use App\Inventario;
 
 
 class FilmeController extends Controller
@@ -30,5 +33,21 @@ class FilmeController extends Controller
 
               return view('editarFilme',['resultado'=>$resultado,'filme'=>$filme]);
            
+    }
+
+    public function deletarFilmes($id){
+
+        $filmesAtores = FilmeAtor::where("filme_id","=",$id)->get();
+
+        foreach ($filmeAtores as $registro) {
+            $registro->delete();
+        }
+        
+         $filme = Filme::find($id);
+
+         $filme->delete();
+
+        echo "deu certo";
+
     }
 }

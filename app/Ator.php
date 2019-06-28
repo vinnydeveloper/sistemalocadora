@@ -9,4 +9,6 @@ class Ator extends Model
     protected $table = "ator";
     protected $primaryKey = "ator_id";
     public $timestamps = false;
+
+  
 }

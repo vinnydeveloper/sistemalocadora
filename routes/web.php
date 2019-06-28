@@ -12,7 +12,7 @@
 */
 
 Route::get('/', function () {
-    return view('home');
+    return view('welcome');
 });
 
 Route::get('cadastro',function(){
@@ -24,18 +24,22 @@ Route::get('cadastro',function(){
 
 Route::get('compras',"comprasController@index");
 
-Route::get('ator',"atorController@index");
+Route::get('ator',"atorController@index")->middleware('checkadmin');
 
 Route::get('ator/cadastro', "atorController@create");
 Route::post('ator/cadastro', "atorController@create");
 Route::get('ator/editar/{id}',"atorController@editar");
 Route::post('ator/editar/{id}',"atorController@editar");
-
+Route::get('deletarAtor/{id}',"atorController@deletarAtor");
 
 Route::get('filme',"FilmeController@todosFilmes");
 Route::get('filme/editar/{id}',"FilmeController@editar");
 Route::post('filme/editar/{id}',"Filmecontroller@editar");
 
+Route::get('deletarFilme/{id}',"FilmeController@deletarFilmes");
+
+
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+
