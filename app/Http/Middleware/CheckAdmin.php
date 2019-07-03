@@ -16,7 +16,9 @@ class CheckAdmin
     public function handle($request, Closure $next)
     {
         $user = $resquest->user();
-
+        if($user->nivel_user != 0){
+            return route('/');
+        }
 
         return $next($request);
     }
