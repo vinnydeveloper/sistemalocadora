@@ -65,6 +65,9 @@
                             </div>
                         </div>
                     </form>
+                    <div class="social">
+                    <a href="{{ url('/auth/facebook') }}" class="btn btn-facebook"><i class="fa fa-facebook"></i>Facebook</a>
+                    </div>
                 </div>
             </div>
         </div>
